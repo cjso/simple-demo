@@ -1,23 +1,26 @@
 package com.simple.simpledemo.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+@Configuration
 public class CorsConfig {
 
-    /*@Bean
+    @Bean
     public CorsFilter corsFilter(){
-        CorsConfiguration corsConfiguration=new CorsConfiguration();
-        //允许跨域的主机地址,*表示所有都可以
-        corsConfiguration.addAllowedOrigin("*");
-        //允许跨域的请求头
-        corsConfiguration.addAllowedHeader("*");
-        //允许跨域的请求方法
-        corsConfiguration.addAllowedMethod("*");
-        UrlBasedCorsConfigurationSource source=new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**",corsConfiguration);
+        CorsConfiguration config = new CorsConfiguration();
+        //允许所有域名进行跨域调用
+        config.addAllowedOrigin("http://localhost:9528");
+        //允许所有请求头
+        config.addAllowedHeader("*");
+        //允许所有方法
+        config.addAllowedMethod("*");
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
-    }*/
+
+    }
 }

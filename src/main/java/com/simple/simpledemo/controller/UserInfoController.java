@@ -23,6 +23,7 @@ import java.util.List;
  * @author lizhou
  * @since 2022-11-15
  */
+//@CrossOrigin("http://localhost:9528")
 @RestController
 @RequestMapping("/dev-api/api/user-info")
 public class UserInfoController {
@@ -33,21 +34,18 @@ public class UserInfoController {
      * 查询菜单列表
      *
      */
-    @CrossOrigin
     @ResponseBody
     @RequestMapping("/getUserInfoList")
     public BaseResponseVO<PageInfo<UserInfo>> getUserInfoList(UserQueryParam userQueryParam) {
         return new BaseResponseVO<>(BusiCodeEnum.SUCCESS, userInfoService.userInfoList(userQueryParam));
     }
 
-    @CrossOrigin
     @ResponseBody
     @RequestMapping("/getUserInfo")
     public BaseResponseVO<UserInfo> getUserInfo(Long id) {
         return new BaseResponseVO<>(BusiCodeEnum.SUCCESS, userInfoService.getUserInfo(id));
     }
 
-    @CrossOrigin
     @ResponseBody
     @RequestMapping("/saveUser")
     public BaseResponseVO saveUser(@RequestBody UserInfoParam userInfo) {
@@ -56,7 +54,6 @@ public class UserInfoController {
     }
 
 
-    @CrossOrigin
     @ResponseBody
     @RequestMapping("/delUser")
     public BaseResponseVO delUser(Long id) {
