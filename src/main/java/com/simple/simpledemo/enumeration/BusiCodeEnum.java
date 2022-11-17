@@ -17,7 +17,7 @@ public enum BusiCodeEnum {
     ACCOUNT_BLOCK(407,"该用户存在违规操作，暂被封禁"),
     ILLEGAL_OPERATE(408,"非法操作或没有权限"),
     PARAM_ERROR(414,"参数错误"),
-    
+
 
     ;
 
