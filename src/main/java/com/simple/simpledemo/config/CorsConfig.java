@@ -18,6 +18,7 @@ public class CorsConfig {
         config.addAllowedHeader("*");
         //允许所有方法
         config.addAllowedMethod("*");
+        config.setAllowCredentials(false);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);

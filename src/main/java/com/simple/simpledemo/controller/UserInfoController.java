@@ -25,7 +25,8 @@ import java.util.List;
  */
 //@CrossOrigin("http://localhost:9528")
 @RestController
-@RequestMapping("/dev-api/api/user-info")
+@RequestMapping("/project")
+//@RequestMapping("/dev-api/api/user-info")
 public class UserInfoController {
 
     @Autowired
