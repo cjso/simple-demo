@@ -2,6 +2,7 @@ package com.simple.simpledemo.controller;
 
 
 import com.github.pagehelper.PageInfo;
+import com.simple.simpledemo.annotations.IgnoreResponseWrapper;
 import com.simple.simpledemo.entity.UserInfo;
 import com.simple.simpledemo.enumeration.BusiCodeEnum;
 import com.simple.simpledemo.param.UserInfoParam;
@@ -23,10 +24,8 @@ import java.util.List;
  * @author lizhou
  * @since 2022-11-15
  */
-//@CrossOrigin("http://localhost:9528")
 @RestController
 @RequestMapping("/project")
-//@RequestMapping("/dev-api/api/user-info")
 public class UserInfoController {
 
     @Autowired
@@ -58,6 +57,14 @@ public class UserInfoController {
     @RequestMapping("/delUser")
     public void delUser(Long id) {
         userInfoService.delUser(id);
+    }
+
+
+    @ResponseBody
+    @IgnoreResponseWrapper
+    @RequestMapping("/getUserInfoIgnore")
+    public UserInfo getUserInfoIgnore(Long id) {
+        return userInfoService.getUserInfo(id);
     }
 
 

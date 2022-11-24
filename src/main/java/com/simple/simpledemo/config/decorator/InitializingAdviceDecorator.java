@@ -1,11 +1,13 @@
 package com.simple.simpledemo.config.decorator;
 
+import com.simple.simpledemo.annotations.IgnoreResponseWrapper;
 import com.simple.simpledemo.enumeration.BusiCodeEnum;
 import com.simple.simpledemo.vo.BaseResponseVO;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.MethodParameter;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.method.support.ModelAndViewContainer;
@@ -72,21 +74,27 @@ public class InitializingAdviceDecorator implements InitializingBean {
          * 增强被装饰者的功能
          *
          * @param returnValue  返回值
-         * @param returnType   返回类型
+         * @param methodParameter   返回类型
          * @param mavContainer view
          * @param webRequest   请求对象
          * @throws Exception 抛出异常
          */
         @Override
-        public void handleReturnValue(Object returnValue, MethodParameter returnType, ModelAndViewContainer mavContainer, NativeWebRequest webRequest) throws Exception {
+        public void handleReturnValue(Object returnValue, MethodParameter methodParameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest) throws Exception {
             //如果已经封装了结构体就直接放行
             if (returnValue instanceof BaseResponseVO) {
-                handler.handleReturnValue(returnValue, returnType, mavContainer, webRequest);
+                handler.handleReturnValue(returnValue, methodParameter, mavContainer, webRequest);
+                return;
+            }
+
+            IgnoreResponseWrapper wrapper = methodParameter.getMethodAnnotation(IgnoreResponseWrapper.class);
+            if (!ObjectUtils.isEmpty(wrapper)) {
+                handler.handleReturnValue(returnValue, methodParameter, mavContainer, webRequest);
                 return;
             }
             //正常返回success
             BaseResponseVO success = new BaseResponseVO<>(BusiCodeEnum.SUCCESS, returnValue);
-            handler.handleReturnValue(success, returnType, mavContainer, webRequest);
+            handler.handleReturnValue(success, methodParameter, mavContainer, webRequest);
         }
     }
 
