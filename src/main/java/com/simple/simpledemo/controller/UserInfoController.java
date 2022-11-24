@@ -4,17 +4,14 @@ package com.simple.simpledemo.controller;
 import com.github.pagehelper.PageInfo;
 import com.simple.simpledemo.annotations.IgnoreResponseWrapper;
 import com.simple.simpledemo.entity.UserInfo;
-import com.simple.simpledemo.enumeration.BusiCodeEnum;
 import com.simple.simpledemo.param.UserInfoParam;
 import com.simple.simpledemo.param.UserQueryParam;
 import com.simple.simpledemo.service.UserInfoService;
-import com.simple.simpledemo.vo.BaseResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import org.springframework.stereotype.Controller;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
