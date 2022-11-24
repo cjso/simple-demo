@@ -37,29 +37,27 @@ public class UserInfoController {
      */
     @ResponseBody
     @RequestMapping("/getUserInfoList")
-    public BaseResponseVO<PageInfo<UserInfo>> getUserInfoList(UserQueryParam userQueryParam) {
-        return new BaseResponseVO<>(BusiCodeEnum.SUCCESS, userInfoService.userInfoList(userQueryParam));
+    public PageInfo<UserInfo> getUserInfoList(UserQueryParam userQueryParam) {
+        return userInfoService.userInfoList(userQueryParam);
     }
 
     @ResponseBody
     @RequestMapping("/getUserInfo")
-    public BaseResponseVO<UserInfo> getUserInfo(Long id) {
-        return new BaseResponseVO<>(BusiCodeEnum.SUCCESS, userInfoService.getUserInfo(id));
+    public UserInfo getUserInfo(Long id) {
+        return userInfoService.getUserInfo(id);
     }
 
     @ResponseBody
     @RequestMapping("/saveUser")
-    public BaseResponseVO saveUser(@RequestBody UserInfoParam userInfo) {
+    public void saveUser(@RequestBody UserInfoParam userInfo) {
         userInfoService.saveUser(userInfo);
-        return new BaseResponseVO<>(BusiCodeEnum.SUCCESS);
     }
 
 
     @ResponseBody
     @RequestMapping("/delUser")
-    public BaseResponseVO delUser(Long id) {
+    public void delUser(Long id) {
         userInfoService.delUser(id);
-        return new BaseResponseVO<>(BusiCodeEnum.SUCCESS);
     }
 
 

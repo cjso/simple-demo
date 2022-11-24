@@ -3,6 +3,8 @@ package com.simple.simpledemo.param;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
+
 /**
  * <p>
  * 用户信息表
@@ -28,6 +30,7 @@ public class UserInfoParam {
     private String name;
 
     @ApiModelProperty(value = "电话")
+    @NotBlank
     private String phone;
 
     @ApiModelProperty(value = "性别（0--未知1--男2--女）")
