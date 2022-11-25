@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.simple.simpledemo.entity.UserInfo;
+import com.simple.simpledemo.exception.CustomMessageException;
 import com.simple.simpledemo.mapper.UserInfoMapper;
 import com.simple.simpledemo.param.UserInfoParam;
 import com.simple.simpledemo.param.UserQueryParam;
@@ -46,6 +47,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
 
     @Override
     public UserInfo getUserInfo(Long id) {
+        System.out.println(5 / 0);
         return this.baseMapper.selectById(id);
     }
 

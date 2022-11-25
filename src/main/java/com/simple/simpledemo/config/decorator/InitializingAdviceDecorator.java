@@ -24,7 +24,7 @@ public class InitializingAdviceDecorator implements InitializingBean {
     private RequestMappingHandlerAdapter adapter;
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         //获取所有的handler对象
         List<HandlerMethodReturnValueHandler> returnValueHandlers = adapter.getReturnValueHandlers();
         //因为上面返回的是unmodifiableList，所以需要新建list处理

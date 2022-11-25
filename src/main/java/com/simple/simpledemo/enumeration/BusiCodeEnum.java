@@ -1,15 +1,19 @@
 package com.simple.simpledemo.enumeration;
 
+import java.util.Arrays;
+
 /**
  * @author liuguofu
  * @date 2017/4/28
  */
 public enum BusiCodeEnum {
+    SUCCESS(20000, "请求成功"),
+    SERVER_ERROR(500, "%s: %s"),//服务器异常，异常信息从exception获取
 
     //4XX 权限编码
-    SUCCESS(20000, "请求成功"),
+
     NON_AUTHORIZATION(401, "登录认证失败"),
-    SERVER_ERROR(402, "服务器异常"),
+
     SERVICE_BUSY(403,"服务器繁忙,请稍后再试"),
     BUSINESS_BUSY(404,"操作过于频繁，请休息一下"),
     H5_LOGIN_CODE_ILLEGAL(405,"网页登录授权码不正确"),
@@ -17,6 +21,9 @@ public enum BusiCodeEnum {
     ACCOUNT_BLOCK(407,"该用户存在违规操作，暂被封禁"),
     ILLEGAL_OPERATE(408,"非法操作或没有权限"),
     PARAM_ERROR(414,"参数错误"),
+    SQL_EXECUTE_ERR(415,"SQL执行异常"),
+    ACCOUNT_EXCEPTION(416,"账号未登录"),
+    NULL_POINTER_EXCEPTION(417,"空指针异常"),
 
 
     ;
@@ -42,4 +49,13 @@ public enum BusiCodeEnum {
     public String toString() {
         return Integer.toString(value);
     }
+
+
+    public static BusiCodeEnum getBusiCodeEnumByCode(int code) {
+        return Arrays.stream(BusiCodeEnum.values())
+                .filter(codeEnum -> codeEnum.value == code)
+                .findAny()
+                .orElse(BusiCodeEnum.SERVER_ERROR);
+    }
+
 }
