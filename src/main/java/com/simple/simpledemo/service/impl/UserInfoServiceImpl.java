@@ -47,7 +47,6 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
 
     @Override
     public UserInfo getUserInfo(Long id) {
-        System.out.println(5 / 0);
         return this.baseMapper.selectById(id);
     }
 
