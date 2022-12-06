@@ -14,9 +14,22 @@
 	<packaging>war</packaging>
 	<name>simple-demo</name>
 	<description>simple Demo project for Spring Boot</description>
+
+
 	<properties>
 		<java.version>1.8</java.version>
+		<swagger2.version>2.9.2</swagger2.version>
+		<swagger-annotations.version>1.5.22</swagger-annotations.version>
+		<swagger-models.version>1.5.22</swagger-models.version>
+		<fastjson.version>1.2.47</fastjson.version>
+		<starter.version>2.2.2</starter.version>
+		<mybatis-plus.version>3.1.2</mybatis-plus.version>
+		<pagehelper.version>5.1.2</pagehelper.version>
+		<hibernate-validator.version>6.2.5.Final</hibernate-validator.version>
+		<commons-lang3.version>3.3.2</commons-lang3.version>
 	</properties>
+
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -25,7 +38,7 @@
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
-			<version>2.2.2</version>
+			<version>${starter.version}</version>
 		</dependency>
 
 		<dependency>
@@ -53,12 +66,12 @@
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-boot-starter</artifactId>
-			<version>3.1.2</version>
+			<version>${mybatis-plus.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-generator</artifactId>
-			<version>3.1.2</version>
+			<version>${mybatis-plus.version}</version>
 		</dependency>
 
 		<!-- mybatisPlus Freemarker 模版引擎,逆向工程需要 -->
@@ -69,25 +82,25 @@
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper</artifactId>
-			<version>5.1.2</version>
+			<version>${pagehelper.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.2.47</version>
+			<version>${fastjson.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-bean-validators</artifactId>
-			<version>2.9.2</version>
+			<version>${swagger2.version}</version>
 		</dependency>
 
 		<!--集成swagger-->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
-			<version>2.9.2</version>
+			<version>${swagger2.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>io.swagger</groupId>
@@ -103,19 +116,19 @@
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.9.2</version>
+			<version>${swagger2.version}</version>
 		</dependency>
 
 		<!-- 解决swagger报错Illegal DefaultValue null for parameter type integer -->
 		<dependency>
 			<groupId>io.swagger</groupId>
 			<artifactId>swagger-annotations</artifactId>
-			<version>1.5.22</version>
+			<version>${swagger-annotations.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.swagger</groupId>
 			<artifactId>swagger-models</artifactId>
-			<version>1.5.22</version>
+			<version>${swagger-models.version}</version>
 		</dependency>
 
 
@@ -124,13 +137,13 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>6.2.5.Final</version>
+			<version>${hibernate-validator.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.3.2</version>
+			<version>${commons-lang3.version}</version>
 		</dependency>
 	</dependencies>
 
