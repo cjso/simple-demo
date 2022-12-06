@@ -1,5 +1,6 @@
 package com.simple.simpledemo.param;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -9,6 +10,7 @@ import lombok.Data;
  * @DESCRIPTION:
  */
 @Data
+@ApiModel("用户列表查询")
 public class UserQueryParam {
     /**
      * 陌生号

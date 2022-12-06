@@ -1,5 +1,8 @@
 
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   datasource:
     name: basic_demo
     driver-class-name: com.mysql.cj.jdbc.Driver
