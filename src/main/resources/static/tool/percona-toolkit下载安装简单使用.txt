@@ -1,0 +1,13 @@
+-- 参考地址：
+-- 镜像获取：https://www.codenong.com/cs106566270/
+-- 语法参考：https://blog.csdn.net/weixin_30707165/article/details/113958727、https://blog.csdn.net/isoleo/article/details/103818332
+docker pull perconalab/percona-toolkit
+-- 创建并启动容器
+docker run -it -d -p 9100:5500 --name percona-toolkit f6bd082a2af7
+
+-- 进入容器
+
+
+-- 增加字段示例
+pt-online-schema-change h=127.0.0.1,P=3320,u=root,p=encounter@dev#mysql,D=moshen,t=user_purse_20220718 --alter "add column operator1 varchar(255) default null comment '操作人' after `status`" --execute
+pt-online-schema-change h=127.0.0.1,P=3320,u=root,p=encounter@dev#mysql,D=moshen,t=user_purse_20220718 --alter "add column operator1 varchar(255) default null after status" --execute
