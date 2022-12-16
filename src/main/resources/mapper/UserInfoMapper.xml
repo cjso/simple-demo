@@ -17,4 +17,8 @@
         <result column="del_flag" property="delFlag" />
     </resultMap>
 
+    <select id="getUserInfoById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select * from user_info where id = #{id}
+    </select>
+
 </mapper>

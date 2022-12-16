@@ -15,4 +15,6 @@ import org.mapstruct.Mapper;
 @Mapper
 public interface UserInfoMapper extends BaseMapper<UserInfo> {
 
+    UserInfo getUserInfoById(Long id);
+
 }
